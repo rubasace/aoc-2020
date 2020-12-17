@@ -34,7 +34,7 @@ public class Day6 {
     }
 
     private static int countAllYes(final String s) {
-        String[] usersAnswers = s.split("\\r?\\n");
+        String[] usersAnswers = FileUtils.splitByLine(s);
         Set<Integer> allAnswers = toSet(usersAnswers[0]);
 
         for (int i = 1; i < usersAnswers.length && allAnswers.size() > 0; i++) {

@@ -1,5 +1,7 @@
 package com.notech.aoc;
 
+import com.notech.aoc.util.FileUtils;
+
 import java.util.stream.IntStream;
 
 public class Day3 {
@@ -10,7 +12,7 @@ public class Day3 {
         int x = 0;
         int y = 0;
         int count = 0;
-        String lines[] = map.split("\\r?\\n");
+        String lines[] = FileUtils.splitByLine(map);
         while (y < lines.length) {
             String line = lines[y];
             if (line.charAt(x % line.length()) == TREE) {

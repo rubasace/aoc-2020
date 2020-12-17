@@ -12,6 +12,7 @@ import java.util.stream.Stream;
 
 public class FileUtils {
 
+    protected static final String LINE_BREAK_REGEX = "\\r?\\n";
     protected static final String BLANK_LINE_REGEX = "\\n\\n";
 
     public static File getFile(final String fileName) {
@@ -50,5 +51,9 @@ public class FileUtils {
 
     public static String[] splitByBlankSpace(final String string) {
         return string.split(BLANK_LINE_REGEX);
+    }
+
+    public static String[] splitByLine(final String string) {
+        return string.split(LINE_BREAK_REGEX);
     }
 }

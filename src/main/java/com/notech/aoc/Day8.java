@@ -13,12 +13,12 @@ public class Day8 {
     private final static String ACCUMULATOR = "acc";
     private final static String JUMP = "jmp";
     private final static String NO_OP = "nop";
-    protected static final String LINE_SEPARATOR = "\\r?\\n";
     protected static final String SPACE_SEPARATOR = "\\s+";
     protected static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("+#;-#");
 
     public static int returnAccumulator(final String input) throws ParseException, InfiniteLoopException {
-        String lines[] = FileUtils.readFile(input).split(LINE_SEPARATOR);
+        String file = FileUtils.readFile(input);
+        String lines[] = FileUtils.splitByLine(file);
         return returnAccumulator(lines);
     }
 
@@ -50,7 +50,8 @@ public class Day8 {
     }
 
     public static int fixAndGetAccumulator(final String input) throws ParseException {
-        String lines[] = FileUtils.readFile(input).split(LINE_SEPARATOR);
+        String file = FileUtils.readFile(input);
+        String lines[] = FileUtils.splitByLine(file);
         for (int i = 0; i < lines.length; i++) {
             String[] lineParts = lines[i].split(SPACE_SEPARATOR);
             String operator = lineParts[0];
