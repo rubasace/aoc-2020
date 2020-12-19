@@ -11,7 +11,7 @@ public class Day17 {
 
     private static final char ACTIVE = '#';
 
-    public static long countActiveCubes(final String fileName, final int cycles, boolean increaseZ) {
+    public static long countActiveCubes(final String fileName, final int cycles, boolean increaseW) {
         List<String> lines = FileUtils.getLines(fileName)
                                       .collect(Collectors.toList());
         int yMin = 0;
@@ -27,14 +27,13 @@ public class Day17 {
         for (int i = 0; i < cycles; i++) {
             xMin--;
             yMin--;
-            wMin--;
+            zMin--;
             xMax++;
             yMax++;
-
-            wMax++;
-            if (increaseZ) {
-                zMin--;
-                zMax++;
+            zMax++;
+            if (increaseW) {
+                wMin--;
+                wMax++;
             }
             activeCubes = mutate(xMin, xMax, yMin, yMax, zMin, zMax, wMin, wMax, activeCubes);
         }
